@@ -1,1 +1,22 @@
-<p>sign-up works!</p>
+<div class="container mt-5 shadow">
+    <div class="row">
+      <div class="col-7 mx-auto">
+        <div class="row">
+          <div class="col-6 bg-dark text-white">
+            <h5 class="text-center">SignUp</h5>
+          </div>
+          <div class="col-6 shadow p-3">
+            <div class="alert alert-danger" *ngIf="message">Email Already Exist</div>
+            <input type="text" name="full_name" placeholder="Full Name" class="form-control mb-3" [(ngModel)]="full_name">
+            <input type="text" name="phone_no" placeholder="Phone Number" class="form-control mb-3" [(ngModel)]="phone_no">
+            <input type="email" name="email" placeholder="Email" class="form-control mb-3" [(ngModel)]="email">
+            <input type="text" name="address" placeholder="Address" class="form-control mb-3" [(ngModel)]="address">
+            <input type="password" name="password" placeholder="Password" class="form-control mb-3" [(ngModel)]="password">
+            <button class="btn btn-dark w-100" (click)="signUp()">Sign_Up</button> <br>
+            <span>You have an account already?<a routerLink="/signin">Sign_In</a></span>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
