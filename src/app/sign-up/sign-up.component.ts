@@ -15,17 +15,25 @@ export class SignUpComponent {
   public password = "";
   public userArray: any = [];
   public message = false;
+  public user_id: any = 0;
 
   ngOnInit() {
+    let user_id: any = localStorage.getItem("taskId");
+    if (user_id) {
+      this.user_id = JSON.parse(user_id);
+    } else {
+      this.user_id = 1;
+    }
+    this.user_id = JSON.parse(user_id);
     let getUsers: any = localStorage.getItem('taskUsers');
     getUsers = JSON.parse(getUsers);
-    // console.log(getUsers, "getUsers");
+    console.log(getUsers, "getUsers");
     if (getUsers) {
       this.userArray = getUsers;
     } else {
       this.userArray = [];
     }
-    // console.log(this.userArray, "userArray");
+    console.log(this.userArray, "userArray");
     
   }
 
@@ -35,9 +43,11 @@ export class SignUpComponent {
     if (checkExist) {
       this.message = true
     } else {
-      let obj = { full_name: this.full_name, phone_no: this.phone_no, email: this.email, address: this.address, password: this.password };
+      let obj = {user_id: this.userArray, full_name: this.full_name, phone_no: this.phone_no, email: this.email, address: this.address, password: this.password };
       this.userArray.push(obj);
+      this.user_id = this.user_id + 1;
       localStorage.setItem("taskUsers", JSON.stringify(this.userArray));
+      localStorage.setItem("taskId", JSON.stringify(this.user_id));
       this.route.navigate(['/signin']);
     }
   }
