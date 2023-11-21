@@ -1,0 +1,16 @@
+  <div class="edit-item">
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="editedItem.description" />
+    </div>
+  
+    <div class="form-group">
+      <label for="value">Value:</label>
+      <input type="number" class="form-control" id="value" [(ngModel)]="editedItem.value" />
+    </div>
+  
+    <!-- Add other fields as needed -->
+  
+    <button class="btn btn-primary" (click)="saveChanges()">Save Changes</button>
+  </div>
+  

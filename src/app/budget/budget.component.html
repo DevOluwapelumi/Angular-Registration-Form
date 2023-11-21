@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="text-center">Budget App</h2>
+  
+        <form>
+          <div class="form-group">
+            <label for="income">Income:</label>
+            <input type="number" class="form-control" id="income" [(ngModel)]="income" name="income" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="expenses">Expenses:</label>
+            <input type="number" class="form-control" id="expenses" [(ngModel)]="expenses" name="expenses" required>
+          </div>
+
+          
+        <div class="form-group">
+            <label for="budgetDescription">Budget Description:</label>
+            <input type="text" class="form-control" id="budgetDescription" [(ngModel)]="budgetDescription" name="budgetDescription" required>
+          </div>
+  
+          <button type="button" class="btn btn-primary" (click)="calculateBudget()">Calculate</button>
+        </form>
+  
+        <div *ngIf="budgetCalculated">
+          <h3 class="mt-4">Budget Results</h3>
+          <p>Income: {{ income }}</p>
+          <p>Expenses: {{ expenses }}</p>
+          <p>Budget: {{ budget }}</p>
+        <p>Budget Description: {{ budgetDescription }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
