@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
+// import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+// import { EditItemComponent } from '../edit-item/edit-item.component';
 
 @Component({
   selector: 'app-budget-list',
@@ -7,6 +9,7 @@ import { BudgetService } from '../services/budget.service';
   styleUrls: ['./budget-list.component.css']
 })
 export class BudgetListComponent implements OnInit {
+
 
   selectedItem: any; 
   
@@ -92,22 +95,55 @@ export class BudgetListComponent implements OnInit {
     this.budgetService.saveToLocalStorage(dataToSave);
   }
 
-  onEditItem(item: any): void {
-    // Handle the edited item here
-    // You may need to find the original item in the incomeList or expenseList and update it
-    // Example:
-    const index = this.incomeList.findIndex((i) => i.id === item.id);
-    if (index !== -1) {
-      this.incomeList[index] = item;
-    } else {
-      // Check in the expenseList if not found in incomeList
-      const expenseIndex = this.expenseList.findIndex((i) => i.id === item.id);
-      if (expenseIndex !== -1) {
-        this.expenseList[expenseIndex] = item;
-      }
-    }
 
-    // Save the updated data to localStorage
-    this.saveBudgetData();
+
+  deleteIncomeItem(incomeItemId: number): void {
+    const index = this.incomeList.findIndex((item) => item.id === incomeItemId);
+    if (index !== -1) {
+      this.totalIncome -= this.incomeList[index].value;
+      this.incomeList.splice(index, 1);
+      this.calculateAvailableBudget();
+      this.saveBudgetData();
+    }
   }
+  
+  deleteExpenseItem(expenseItemId: number): void {
+    const index = this.expenseList.findIndex((item) => item.id === expenseItemId);
+    if (index !== -1) {
+      this.totalExpenses -= this.expenseList[index].value;
+      this.expenseList.splice(index, 1);
+      this.calculateAvailableBudget();
+      this.saveBudgetData();
+    }
+  }
+
+
+  // bsModalRef: BsModalRef;
+
+  // constructor(private modalService: BsModalService) {}
+
+  // @ViewChild('editItemModal') editItemModal: EditItemComponent; 
+
+  // editItem(item: any): void {
+  //   const initialState = {
+  //     item: { ...item }, 
+  //   };
+
+  //   this.bsModalRef = this.modalService.show(EditItemComponent, { initialState, class: 'modal-lg' });
+
+  //   this.bsModalRef.content.onClose.subscribe((editedItem: any) => {
+  //     if (editedItem) {
+  //       const index = this.incomeList.findIndex((i) => i.id === item.id);
+  //       if (index !== -1) {
+  //         this.incomeList[index] = editedItem;
+  //       } else {
+  //         const expenseIndex = this.expenseList.findIndex((i) => i.id === item.id);
+  //         if (expenseIndex !== -1) {
+  //           this.expenseList[expenseIndex] = editedItem;
+  //         }
+  //       }
+
+  //       this.saveBudgetData();
+  //     }
+  //   });
 }

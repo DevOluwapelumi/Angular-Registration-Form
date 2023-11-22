@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { BudgetListComponent } from './budget-list/budget-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -34,8 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    // BrowserAnimationsModule,
-    // MatDialogModule,
+    ModalModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

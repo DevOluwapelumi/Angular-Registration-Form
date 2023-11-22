@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
+
+  
   constructor (public route: Router) { };
   public full_name = "";
   public phone_no = "";
@@ -16,6 +19,8 @@ export class SignUpComponent {
   public userArray: any = [];
   public message = false;
   public user_id: any = 0;
+
+  
 
   ngOnInit() {
     let user_id: any = localStorage.getItem("taskId");
@@ -51,5 +56,7 @@ export class SignUpComponent {
       this.route.navigate(['/signin']);
     }
   }
+
+  
 
 }

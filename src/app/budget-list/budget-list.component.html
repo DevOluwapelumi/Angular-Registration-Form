@@ -34,15 +34,10 @@
             </div>
 
           </div>
-          <!-- budget__title -->
         </div>
-        <!-- budget -->
       </div>
-      <!-- top -->
     </div>
-    <!-- container -->
   </div>
-  <!-- jumbotron-fluid -->
 
   <div class="bottom mt-3">
     <div class="add">
@@ -65,13 +60,9 @@
               </button>
             </div>
           </div>
-
         </div>
-        <!-- add__container -->
       </div>
-      <!-- container -->
     </div>
-    <!-- add -->
 
     <div class="row mt-5 list">
       <div class="col-12 col-lg-6 my-5 income">
@@ -81,7 +72,16 @@
             <div class="col-4">{{ incomeItem.description }}</div>
             <div class="col-5">{{ incomeItem.value | currency:'USD':'symbol':'1.2-2' }}</div>
             <div class="col-3">&nbsp;</div>
-            <div class="col-1 text-right item__delete"> <button class="btn item__delete-btn"> <i class="fas fa-trash"></i> </button> </div>
+            <!-- <div class="col-3">
+              <button class="btn item__edit-btn" (click)="editItem(incomeItem)">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div> -->
+            <div class="col-3"> 
+              <button class="btn item__delete-btn" (click)="deleteIncomeItem(incomeItem.id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -93,7 +93,16 @@
             <div class="col-4">{{ expenseItem.description }}</div>
             <div class="col-5">{{ expenseItem.value | currency:'USD':'symbol':'1.2-2' }}</div>
             <div class="col-2">{{ expenseItem.percentage }}%</div>
-            <div class="col-1 text-right item__delete"> <button class="btn item__delete-btn"> <i class="fas fa-trash"></i> </button> </div>
+            <!-- <div class="col-1 text-right item__edit">
+              <button class="btn item__edit-btn" (click)="editItem(expenseItem)">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div> -->
+            <div class="col-3"> 
+              <button class="btn item__delete-btn" (click)="deleteExpenseItem(expenseItem.id)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -107,4 +116,4 @@
 
 <!-- budget-list.component.html -->
 <!-- Add this wherever you want to allow editing an item -->
-<app-edit-item [item]="selectedItem" (editItem)="onEditItem($event)"></app-edit-item>
+<!-- <app-edit-item [item]="selectedItem" (editItem)="onEditItem($event)"></app-edit-item> -->

@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-edit-item',
@@ -11,7 +12,7 @@ export class EditItemComponent {
 
   editedItem: any = {};
 
-  constructor() {}
+  constructor(public bsModalRef: BsModalRef) {}
 
   ngOnInit(): void {
     // Initialize editedItem with a copy of the original item
@@ -19,7 +20,8 @@ export class EditItemComponent {
   }
 
   saveChanges(): void {
-    // Emit the edited item to the parent component
-    this.editItem.emit(this.editedItem);
+    // this.onClose.emit(this.editedItem);
+    this.bsModalRef.hide();
   }
+
 }
