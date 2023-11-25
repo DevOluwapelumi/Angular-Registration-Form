@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,6 +15,7 @@ export class SignUpComponent {
   public email = "";
   public address = "";
   public password = "";
+
   public userArray: any = [];
   public message = false;
   public user_id: any = 0;

@@ -14,6 +14,8 @@ import { EditItemComponent } from './edit-item/edit-item.component';
 import { BudgetListComponent } from './budget-list/budget-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { SignupbackendComponent } from './signupbackend/signupbackend.component';
+import { SigninbackendComponent } from './signinbackend/signinbackend.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AddItemComponent,
     EditItemComponent,
     BudgetListComponent,
+    SignupbackendComponent,
+    SigninbackendComponent,
   ],
   
   imports: [

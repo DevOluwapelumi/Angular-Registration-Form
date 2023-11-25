@@ -1,0 +1,174 @@
+<div class="container col-3 mt-5 bg-secondar">
+    <!-- <div class="row"> -->
+            <h1 class="text-center text-info"><b>SignUp Form</b></h1>
+            <form [formGroup]="forms">
+                <input type="text" placeholder="First Name" class="form-control my-2" formControlName="first_name"
+                [class.is-valid]="forms.get('firstname')?.invalid && forms.get('firstname')?.touched"
+                [class.is-invalid]="forms.get('firstname')?.invalid && forms.get('firstname')?.touched">
+                <div *ngIf="forms.get('firstname')?.invalid && forms.get('firstname')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('firstname')?.errors?.['required']">Firstname is required</span></div>
+
+                <input type="text" placeholder="Surname" class="form-control my-2" formControlName="last_name"
+                [class.is-valid]="forms.get('lastname')?.invalid && forms.get('lastname')?.touched"
+                [class.is-invalid]="forms.get('lastname')?.invalid && forms.get('lastname')?.touched">
+                <div *ngIf="forms.get('lastname')?.invalid && forms.get('lastname')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('lastname')?.errors?.['required']">Lastname is required</span></div>
+
+                <input type="text" placeholder="Phone Number" class="form-control my-2" formControlName="phone_number"
+                [class.is-valid]="forms.get('phonenumber')?.invalid && forms.get('phonenumber')?.touched"
+                [class.is-invalid]="forms.get('phonenumber')?.invalid && forms.get('phonenumber')?.touched">
+                <div *ngIf="forms.get('phonenumber')?.invalid && forms.get('phonenumber')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('phonenumber')?.errors?.['required']">Phone Number is required</span>
+               <span *ngIf="forms.get('phonenumber')?.errors?.['maxlength']">Maximum length required is 11</span></div>
+
+                <input type="text" placeholder="Email" class="form-control my-2" formControlName="email"
+                [class.is-valid]="forms.get('email')?.invalid && forms.get('email')?.touched"
+                [class.is-invalid]="forms.get('email')?.invalid && forms.get('email')?.touched">
+                <div *ngIf="forms.get('email')?.invalid && forms.get('email')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('email')?.errors?.['required']">Email is required</span>
+               <span *ngIf="forms.get('email')?.errors?.['maxlength']">Maximum length required is 10</span></div>
+
+               <input type="text" placeholder="Age" class="form-control my-2" formControlName="age">
+
+               <div *ngIf="forms.get('gender')?.invalid && forms.get('gender')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('gender')?.errors?.['required']">Gender is required</span>
+            </div>
+            <select class="form-control my-2" formControlName="gender">
+                <option value="" disabled>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <div *ngIf="forms.get('address')?.invalid && forms.get('address')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('address')?.errors?.['required']">Address is required</span>
+            </div>
+            <input type="text" placeholder="Address" class="form-control my-2" formControlName="address">
+
+            <div *ngIf="forms.get('complexion')?.invalid && forms.get('complexion')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('complexion')?.errors?.['required']">Complexion is required</span>
+            </div>
+            <input type="text" placeholder="Complexion" class="form-control my-2" formControlName="complexion">
+
+            <div *ngIf="forms.get('department')?.invalid && forms.get('department')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('department')?.errors?.['required']">Department is required</span>
+            </div>
+            <input type="text" placeholder="Department" class="form-control my-2" formControlName="department">
+
+
+                <input type="text" placeholder="Password" class="form-control my-2" formControlName="password"
+                [class.is-valid]="forms.get('password')?.invalid && forms.get('password')?.touched"
+                [class.is-invalid]="forms.get('password')?.invalid && forms.get('password')?.touched">
+                <div *ngIf="forms.get('password')?.invalid && forms.get('password')?.touched">
+                <span class="text-center text-danger" *ngIf="forms.get('password')?.errors?.['required']">This field is required</span>
+                <span *ngIf="forms.get('password')?.errors?.['maxlength']">Maximum length required is 8</span></div>
+
+                <button class="btn btn-dark w-100 my-2" type="submit" [disabled]="forms.invalid" (click)="submitForm()">Submit</button>
+            </form>
+        </div>
+        <!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container bg-secondary col-3 mt-5">
+    <div class="row">
+    <h1 class="text-center text-info w-5"><b>SignUp Form</b></h1>
+    <div *ngIf="registrationSuccessful" class="alert alert-success text-green p-2 mt-2"><b> Form Submitted Successfully!!! </b></div>
+
+    <form #ngForm="ngForm" (ngSubmit)="submitForms()">
+
+      <div *ngIf="fname.invalid && fname.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="fname?.errors?.['minlength']">Minimum length required is 5</span>
+      </div>
+      <input type="text" placeholder="First Name" class="form-control my-2" name="firstname" [(ngModel)]="firstname" #fname="ngModel" minlength="5" maxlength="10"
+        [class.is-valid]="fname.valid && fname.dirty && fname.value !== ''"
+        [class.is-invalid]="fname.invalid && fname.dirty" required>
+      
+      <div *ngIf="lname.invalid && lname.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px">
+        <span *ngIf="lname?.errors?.['required']">Last Name is required</span>
+      </div>
+      <input type="text" placeholder="Surname" class="form-control my-2" [(ngModel)]="lastname" name="lastname" #lname="ngModel"
+      [class.is-valid]="lname.valid && lname.dirty && lname.value !== ''"
+      [class.is-invalid]="lname.invalid && lname.dirty" required>
+      
+      <div *ngIf="aged.invalid && aged.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="aged?.errors?.['required']">Age is required</span>
+      </div>
+      <input type="number" placeholder="Age" class="form-control my-2" [(ngModel)]="age" name="age" #aged="ngModel"
+      [class.is-valid]="aged.valid && aged.dirty && aged.value !== ''"
+      [class.is-invalid]="aged.invalid && aged.dirty" required>
+      
+      <div *ngIf="mail.invalid && mail.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="mail?.errors?.['required']">Email is required</span>
+        <span *ngIf="mail?.errors?.['invalidDomain']">Invalid email domain. Allowed domains: (@gmail.com, @outlook.com)</span>
+      </div>
+      <input type="email" placeholder="Email" class="form-control my-2" [(ngModel)]="email"  name="email" #mail="ngModel" 
+      [class.is-valid]="mail.valid && mail.dirty && mail.value !== ''"
+      [class.is-invalid]="mail.invalid && mail.dirty" required invalidDomain>
+
+      <div *ngIf="sex.invalid && sex.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="sex?.errors?.['required']">Gender is required</span>
+      </div>
+      <select class="form-control my-2" [(ngModel)]="selectedGender" name="gender" #sex="ngModel"
+        [class.is-valid]="sex.valid && sex.dirty && sex.value !== ''"
+        [class.is-invalid]="sex.invalid && sex.dirty" required>
+        <option value="" disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <div *ngIf="adds.invalid && adds.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="adds?.errors?.['required']">Address is required</span>
+      </div>
+      <input type="text" placeholder="Address" class="form-control my-2" [(ngModel)]="address" name="address" #adds="ngModel"
+        [class.is-valid]="adds.valid && adds.dirty && adds.value !== ''"
+        [class.is-invalid]="adds.invalid && adds.dirty" required>
+
+      <div *ngIf="complex.invalid && complex.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="complex?.errors?.['required']">Complexion is required</span>
+      </div>
+      <input type="text" placeholder="Complexion" class="form-control my-2" [(ngModel)]="complexion" name="complexion" #complex="ngModel"
+        [class.is-valid]="complex.valid && complex.dirty && complex.value !== ''"
+        [class.is-invalid]="complex.invalid && complex.dirty" required>
+
+      <div *ngIf="depart.invalid && depart.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="depart?.errors?.['required']">Department is required</span>
+      </div>
+      <input type="text" placeholder="Department" class="form-control my-2" [(ngModel)]="department" name="department" #depart="ngModel"
+        [class.is-valid]="depart.valid && depart.dirty && depart.value !== ''"
+        [class.is-invalid]="depart.invalid && depart.dirty" required>
+
+      <div *ngIf="pass.invalid && pass.dirty" class="bg-white text-danger shadow p-1 ms-2" style="position: absolute; margin: -25px; border-radius: 5px;">
+        <span *ngIf="pass?.errors?.['minlength']">Minimum length required is 5</span>
+      </div>
+      <input type="text" placeholder="Password" class="form-control my-2" [(ngModel)]="password"  name="password" #pass="ngModel" minlength="8" maxlength="12"
+      [class.is-valid]="pass.valid && pass.dirty && pass.value !== ''"
+        [class.is-invalid]="pass.invalid && pass.dirty" required>
+  
+      <button class="btn btn-dark w-100 my-2" type="submit" [disabled]="ngForm.invalid">Submit</button>
+    </form>
+  </div>
+  </div> -->

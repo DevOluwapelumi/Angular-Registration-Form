@@ -8,6 +8,8 @@ import { BudgetComponent } from './budget/budget.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { BudgetListComponent } from './budget-list/budget-list.component';
+import { SignupbackendComponent } from './signupbackend/signupbackend.component';
+import { SigninbackendComponent } from './signinbackend/signinbackend.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "home", pathMatch: "full"},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path: 'add', component: AddItemComponent},
   {path: 'list', component: BudgetListComponent},
   {path: 'edit', component: EditItemComponent},
+  {path: 'backendsignup', component: SignupbackendComponent},
+  {path: 'backendsignin', component: SigninbackendComponent},
   {path: '**', component: WildcashComponent},
 ];
 
