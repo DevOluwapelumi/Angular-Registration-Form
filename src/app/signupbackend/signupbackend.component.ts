@@ -17,7 +17,7 @@ export class SignupbackendComponent {
     first_name: ['', Validators.required],
     last_name: ['', Validators.required],
     phone_number : ['', [Validators.required, Validators.maxLength(10)]],
-    email: ['', [Validators.required, Validators.maxLength(10)]],
+    email: ['', [Validators.required, Validators.email]],
     age: ['', Validators.required],
     gender: ['', Validators.required],
     address: ['', Validators.required],
@@ -32,28 +32,17 @@ export class SignupbackendComponent {
     this.services.sendsignup(this.forms.value).subscribe(
       (data) => {
         console.log(data);
-        // Handle success, e.g., redirect to another page
+        // if (data && data.success === true) {
+        //   // Redirect to signinbackend upon successful registration
+        //   this.router.navigate(['/signinbackend']);
+        // }
       },
       (error) => {
         console.log(error);
-        // Handle error
       }
     );
 
-    this.forms.reset(); // Reset the form after submission
+    this.forms.reset(); 
     console.log("Welcome back Home");
   }
-
-    
-
-   
-
-
-  // if (this.backendsignup.valid) {
-  //   this.services.sendsignup(this.backendsignup.value).subscribe(data => {
-  //     console.log(data); 
-  //   }, error => {
-  //     console.log(error);
-  //   })
-  // }
 }

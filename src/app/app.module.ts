@@ -16,6 +16,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SignupbackendComponent } from './signupbackend/signupbackend.component';
 import { SigninbackendComponent } from './signinbackend/signinbackend.component';
+import { BackendsigninComponent } from './backendsignin/backendsignin.component';
+import { BackenddashboardComponent } from './backenddashboard/backenddashboard.component';
+import { BackendeditComponent } from './backendedit/backendedit.component';
+import { BackenddeleteComponent } from './backenddelete/backenddelete.component';
 
 
 @NgModule({
@@ -31,6 +35,10 @@ import { SigninbackendComponent } from './signinbackend/signinbackend.component'
     BudgetListComponent,
     SignupbackendComponent,
     SigninbackendComponent,
+    BackendsigninComponent,
+    BackenddashboardComponent,
+    BackendeditComponent,
+    BackenddeleteComponent,
   ],
   
   imports: [

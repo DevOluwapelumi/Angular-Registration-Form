@@ -1,8 +1,7 @@
-<div class="container col-3 mt-5 bg-secondar">
-    <!-- <div class="row"> -->
+<div class="container col-3 mt-5 bg-secondary">
             <h1 class="text-center text-info"><b>SignUp Form</b></h1>
             <form [formGroup]="forms">
-                <input type="text" placeholder="First Name" class="form-control my-2" formControlName="first_name"
+              <input type="text" placeholder="First Name" class="form-control my-2" formControlName="first_name"
                 [class.is-valid]="forms.get('firstname')?.invalid && forms.get('firstname')?.touched"
                 [class.is-invalid]="forms.get('firstname')?.invalid && forms.get('firstname')?.touched">
                 <div *ngIf="forms.get('firstname')?.invalid && forms.get('firstname')?.touched">
@@ -65,7 +64,6 @@
                 <button class="btn btn-dark w-100 my-2" type="submit" [disabled]="forms.invalid" (click)="submitForm()">Submit</button>
             </form>
         </div>
-        <!-- </div> -->
 
 
 
